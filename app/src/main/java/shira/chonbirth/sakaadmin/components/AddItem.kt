@@ -39,7 +39,7 @@ fun AddItem(
             mutableStateOf("")
         }
         var jobtype by remember {
-            mutableStateOf("FLEX")
+            mutableStateOf("Banner")
         }
         var quantity by remember {
             mutableStateOf("1")
@@ -58,7 +58,7 @@ fun AddItem(
             },
             text = {
                 Column() {
-                    Text(text = "TYPE", modifier = Modifier.padding(top = 10.dp))
+                    Text(text = "Category", modifier = Modifier.padding(top = 10.dp))
                     Row(
                         modifier = Modifier
                             .fillMaxWidth(1F)
@@ -86,26 +86,26 @@ fun AddItem(
                         }
                         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }, modifier = Modifier.fillMaxWidth()) {
                             DropdownMenuItem(onClick = {
-                                jobtype = "FLEX"
+                                jobtype = "Banner"
                                 expanded = false
                             }) {
-                                Text(text = "Flex Banner")
+                                Text(text = "Banner")
                             }
                             DropdownMenuItem(onClick = {
-                                jobtype = "STAR"
+                                jobtype = "Offset"
                                 expanded = false
                             }) {
-                                Text(text = "Star Flex Banner")
+                                Text(text = "Offset")
                             }
                             DropdownMenuItem(onClick = {
-                                jobtype = "VINYL"
+                                jobtype = "Digital"
                                 expanded = false
                             }) {
-                                Text(text = "Vinyl Sticker")
+                                Text(text = "Digital")
                             }
                         }
                     }
-                    Text(text = "Description", modifier = Modifier.padding(top = 10.dp))
+//                    Text(text = "Description", modifier = Modifier.padding(top = 10.dp))
                     OutlinedTextField(value = width, onValueChange = {width = it}, modifier = Modifier.fillMaxWidth(), label = { Text(text = "Description")}, keyboardOptions = KeyboardOptions(
                         KeyboardCapitalization.None,autoCorrect = false, keyboardType = KeyboardType.Text)
                     )

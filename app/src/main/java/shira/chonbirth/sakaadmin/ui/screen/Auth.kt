@@ -31,19 +31,10 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun Dashboard(navHostController: NavHostController, sharedViewModel: SharedViewModel, db: FirebaseFirestore){
+fun Auth(navHostController: NavHostController, sharedViewModel: SharedViewModel, db: FirebaseFirestore){
     val scrollState = rememberScrollState()
 
     Scaffold (
-        topBar = {
-            Surface(elevation = 1.dp, modifier = Modifier.fillMaxWidth(), color = MaterialTheme.colors.Texture) {
-            Column() {
-                Text(text = "SAKA Offset Printing", modifier = Modifier.padding(start = 10.dp, top = 6.dp, bottom = 2.dp), style = MaterialTheme.typography.body2, color = MaterialTheme.colors.primary)
-                Box(modifier = Modifier.fillMaxWidth()) {
-                    Text(text = "Dashboard", modifier = Modifier.padding(start = 10.dp, bottom = 14.dp, end = 20.dp), style = MaterialTheme.typography.h4, color = MaterialTheme.colors.PrimaryText)
-                }
-            }
-        }},
         content = {
             Column(modifier = Modifier
                 .background(color = MaterialTheme.colors.Background)

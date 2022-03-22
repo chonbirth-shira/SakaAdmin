@@ -49,6 +49,7 @@ import androidx.navigation.navOptions
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionRequired
 import com.google.accompanist.permissions.rememberPermissionState
+import com.google.common.collect.ArrayListMultimap
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -75,6 +76,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 @RequiresApi(Build.VERSION_CODES.R)
@@ -91,28 +93,26 @@ fun OptionDialog(
     id: Int,
     context: Context
 ){
-//    val context = LocalContext.current
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
     if (openDialog){
         var loading by remember { mutableStateOf(true) }
-//        var jobcategory by remember { mutableStateOf("") }
+
         var jobId by remember { mutableStateOf("") }
         var name by remember { mutableStateOf("") }
         var addr by remember { mutableStateOf("") }
         var contact by remember { mutableStateOf("") }
-        var perticular by remember { mutableStateOf("") }
+        var particular by remember { mutableStateOf(ArrayList<String>(emptyList())) }
         var amount by remember { mutableStateOf(0) }
         var advance by remember { mutableStateOf(0) }
         var order by remember { mutableStateOf("") }
         var delivery by remember { mutableStateOf("") }
         LaunchedEffect(key1 = true){
-            db.collection("flexorders").document(id.toString()).get().addOnSuccessListener{
-//                jobcategory = it.get("job_category").toString()
+            db.collection("orders").document(id.toString()).get().addOnSuccessListener{
                 jobId = it.get("job_id").toString()
                 name = it.get("customer_name").toString()
                 addr = it.get("customer_address").toString()
                 contact = it.get("customer_contact").toString()
-                perticular = it.get("perticular").toString()
+//                particular = it.get("particular")
                 amount = it.get("amount").toString().toInt()
                 advance = it.get("advance").toString().toInt()
                 order = it.get("order_date").toString()
@@ -221,38 +221,38 @@ fun OptionDialog(
                     }
                     Column(modifier = Modifier.padding(10.dp)) {
                         Spacer(modifier = Modifier.size(2.dp))
-                        val sizes = remember {
-                            mutableListOf<String>()
-                        }
-                        sizes.clear()
-                        if(perticular.length > 2) {
-                            perticular.split(",").forEach {
-                                val item = it.split("_")
-                                if (item.get(0) == "FLEX"){
-                                    sizes.add( "FLEX " + item.get(1) + " - " + item.get(3) + " COPY")
-                                }
-                                if (item.get(0) == "STAR"){
-                                    sizes.add( "STAR " + item.get(1) + " - " + item.get(3) + " COPY")
-                                }
-                                if (item.get(0) == "VINYL"){
-                                    sizes.add( "VINYL " + item.get(1) + " - " + item.get(3) + " COPY")
-                                }
-                            }
+//                        val sizes = remember {
+//                            mutableListOf<String>()
+//                        }
+//                        sizes.clear()
+//                        if(perticular.length > 2) {
+//                            perticular.split(",").forEach {
+//                                val item = it.split("_")
+//                                if (item.get(0) == "FLEX"){
+//                                    sizes.add( "FLEX " + item.get(1) + " - " + item.get(3) + " COPY")
+//                                }
+//                                if (item.get(0) == "STAR"){
+//                                    sizes.add( "STAR " + item.get(1) + " - " + item.get(3) + " COPY")
+//                                }
+//                                if (item.get(0) == "VINYL"){
+//                                    sizes.add( "VINYL " + item.get(1) + " - " + item.get(3) + " COPY")
+//                                }
+//                            }
                             Column(modifier = Modifier
                                 .fillMaxWidth()) {
-                                sizes.forEach{
-                                    Row(modifier = Modifier
-                                        .padding(end = 5.dp)) {
-                                        Text(
-                                            text = "${(sizes.indexOf(it)+1)}" + ". " + it,
-                                            modifier = Modifier
-                                                .padding(start = 6.dp, end = 6.dp)
-                                                .fillMaxWidth(),
-                                            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Bold),
-                                            color = MaterialTheme.colors.PrimaryText,
-                                        )
-                                    }
-                                }
+//                                sizes.forEach{
+//                                    Row(modifier = Modifier
+//                                        .padding(end = 5.dp)) {
+//                                        Text(
+//                                            text = "${(sizes.indexOf(it)+1)}" + ". " + it,
+//                                            modifier = Modifier
+//                                                .padding(start = 6.dp, end = 6.dp)
+//                                                .fillMaxWidth(),
+//                                            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Bold),
+//                                            color = MaterialTheme.colors.PrimaryText,
+//                                        )
+//                                    }
+//                                }
                             }
                         }
 
@@ -579,7 +579,7 @@ fun OptionDialog(
 //                onYesClicked()
 //            }
 //        )
-    }
+//    }
 }
 fun savePdf(){
     val mDoc = Document()
