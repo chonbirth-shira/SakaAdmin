@@ -121,30 +121,6 @@ fun OptionDialog(
                 loading = false
             }
         }
-//        var doNotShowRationale by rememberSaveable { mutableStateOf(false) }
-//
-//        val writeStoragePermissionState = rememberPermissionState(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
-//
-//        PermissionRequired(
-//            permissionState = writeStoragePermissionState,
-//            permissionNotGrantedContent = {
-//                if (doNotShowRationale) {
-//                    Text("Feature not available")
-//                } else {
-//                    Rationale(
-//                        onDoNotShowRationale = { doNotShowRationale = true },
-//                        onRequestPermission = { writeStoragePermissionState.launchPermissionRequest() }
-//                    )
-//                }
-//            },
-//            permissionNotAvailableContent = {
-////                PermissionDenied(navigateToSettingsScreen)
-//            }
-//        ) {
-//            Text("Read Storage permission Granted")
-////            DisplayList()
-////            savePdf()
-//        }
         Dialog(onDismissRequest = { onYesClicked() }, properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = true, usePlatformDefaultWidth = false)) {
             Column(modifier = Modifier
                 .padding(10.dp)

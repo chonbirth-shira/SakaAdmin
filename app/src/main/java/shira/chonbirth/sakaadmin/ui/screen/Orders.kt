@@ -171,7 +171,7 @@ fun Orders(
                     .height(100.dp)
                     .padding(start = 8.dp, end = 8.dp, top = 8.dp)
                     .combinedClickable(onClick = {
-//                        id = it.job_id
+                        id = it.job_id.toInt()
                         onoff = true
                     }, onLongClick = {
                         sharedViewModel.selected_jobId.value = it.job_id.toString()
