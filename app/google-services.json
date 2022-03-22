@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "524116940021",
+    "project_id": "saka-offset-printing",
+    "storage_bucket": "saka-offset-printing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524116940021:android:9c73fa8c3a50062dd0a1bc",
+        "android_client_info": {
+          "package_name": "shira.chonbirth.sakaadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524116940021-nardkhmbqnthdphg30h6df09gm9gc21h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SsWBdLEMqYtzOUbjALrzk-Q1lCQ2_to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524116940021-nardkhmbqnthdphg30h6df09gm9gc21h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524116940021:android:ce72845b6c537b79d0a1bc",
+        "android_client_info": {
+          "package_name": "shira.chonbirth.sakaoffsetprinting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524116940021-nardkhmbqnthdphg30h6df09gm9gc21h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SsWBdLEMqYtzOUbjALrzk-Q1lCQ2_to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524116940021-nardkhmbqnthdphg30h6df09gm9gc21h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
