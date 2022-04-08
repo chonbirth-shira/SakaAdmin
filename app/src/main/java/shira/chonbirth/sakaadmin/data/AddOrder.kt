@@ -11,5 +11,8 @@ data class AddOrder(
     val advance: Int,
     val particulars: ArrayList<String>,
     val description: String,
-    val status: String
+    val status: String,
+    val flex: String,
+    val press: String,
+    val digital: String
 )

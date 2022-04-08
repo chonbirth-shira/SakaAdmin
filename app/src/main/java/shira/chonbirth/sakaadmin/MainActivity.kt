@@ -32,35 +32,35 @@ import shira.chonbirth.sakaadmin.ui.theme.SakaAdminTheme
 import shira.chonbirth.sakaadmin.viewmodels.SharedViewModel
 import java.io.File
 
-private const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
+//private const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
+//
+//private fun foregroundPermissionApproved(context: Context): Boolean {
+//    val writePermissionFlag = PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
+//        context, Manifest.permission.WRITE_EXTERNAL_STORAGE
+//    )
+//    val readPermissionFlag = PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
+//        context, Manifest.permission.READ_EXTERNAL_STORAGE
+//    )
+//
+//    return writePermissionFlag && readPermissionFlag
+//}
 
-private fun foregroundPermissionApproved(context: Context): Boolean {
-    val writePermissionFlag = PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
-        context, Manifest.permission.WRITE_EXTERNAL_STORAGE
-    )
-    val readPermissionFlag = PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
-        context, Manifest.permission.READ_EXTERNAL_STORAGE
-    )
-
-    return writePermissionFlag && readPermissionFlag
-}
-
-private fun requestForegroundPermission(context: Context) {
-    val provideRationale = foregroundPermissionApproved(context = context)
-    if (provideRationale) {
-        ActivityCompat.requestPermissions(
-            context as Activity,
-            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
-            REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
-        )
-    } else {
-        ActivityCompat.requestPermissions(
-            context as Activity,
-            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
-            REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
-        )
-    }
-}
+//private fun requestForegroundPermission(context: Context) {
+//    val provideRationale = foregroundPermissionApproved(context = context)
+//    if (provideRationale) {
+//        ActivityCompat.requestPermissions(
+//            context as Activity,
+//            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
+//            REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
+//        )
+//    } else {
+//        ActivityCompat.requestPermissions(
+//            context as Activity,
+//            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
+//            REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
+//        )
+//    }
+//}
 
 class MainActivity : ComponentActivity() {
     lateinit var navController: NavHostController
@@ -70,13 +70,11 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen().apply {
-            setKeepVisibleCondition(condition = { sharedViewModel.splashScreen.value })
-        }
+        installSplashScreen()
         setContent {
             SakaAdminTheme {
                 val context = LocalContext.current
-                requestForegroundPermission(context)
+//                requestForegroundPermission(context)
 
                 val db = Firebase.firestore
                 navController = rememberNavController()

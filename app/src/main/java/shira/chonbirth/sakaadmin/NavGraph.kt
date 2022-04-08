@@ -14,7 +14,10 @@ import shira.chonbirth.sakaadmin.viewmodels.SharedViewModel
 @RequiresApi(Build.VERSION_CODES.R)
 @Composable
 fun SetupNavGraph(navHostController: NavHostController, sharedViewModel: SharedViewModel, firestore: FirebaseFirestore, context: Context){
-    NavHost(navController = navHostController, startDestination = Screen.Dashboard.route){
+    NavHost(navController = navHostController, startDestination = Screen.Auth.route){
+        composable(route = Screen.Auth.route){
+            Auth(navHostController = navHostController, sharedViewModel = sharedViewModel, db = firestore)
+        }
         composable(route = Screen.Dashboard.route){
             Dashboard(navHostController = navHostController, sharedViewModel = sharedViewModel, db = firestore)
         }

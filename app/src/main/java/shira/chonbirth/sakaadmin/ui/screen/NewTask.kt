@@ -83,7 +83,7 @@ fun NewTask(navHostController: NavHostController, sharedViewModel: SharedViewMod
                                     description = description +", "+ it.job_category
                                 }
                             }
-                            db.collection("orders").document(id).set(AddOrder(job_id = id, customer_name = name, customer_contact = contact, customer_address = address, status = "new", delivery_date = date, total = amount.toInt(), advance = advance.toInt(), order_date = today, description = description, particulars = particulars))
+                            db.collection("orders").document(id).set(AddOrder(job_id = id, customer_name = name, customer_contact = contact, customer_address = address, status = "new", delivery_date = date, total = amount.toInt(), advance = advance.toInt(), order_date = today, description = description, particulars = particulars, flex="", press="", digital=""))
                             navHostController.navigateUp()
                         }) {
                             Text(text = "Confirm")

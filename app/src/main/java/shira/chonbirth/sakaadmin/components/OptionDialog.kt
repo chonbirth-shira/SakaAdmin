@@ -291,12 +291,12 @@ fun OptionDialog(
                         val print = remember {
                             mutableStateOf(false)
                         }
-                        val launcher = rememberLauncherForActivityResult(contract =
-                            ActivityResultContracts.GetContent()) { uri ->
-                            val source = ImageDecoder
-                                .createSource(context.contentResolver,uri)
-                            bitmap = ImageDecoder.decodeBitmap(source)
-                            }
+//                        val launcher = rememberLauncherForActivityResult(contract =
+//                            ActivityResultContracts.GetContent()) { uri ->
+//                            val source = ImageDecoder
+//                                .createSource(context.contentResolver, uri)
+//                            bitmap = ImageDecoder.decodeBitmap(source)
+//                            }
                         val launcherCam =
                             rememberLauncherForActivityResult(ActivityResultContracts.TakePicturePreview()) { bmp: Bitmap? ->
                                 bitmap = bmp
@@ -324,7 +324,7 @@ fun OptionDialog(
                                     Text(text = "Camera")
                                 }
                                 Button(onClick = {
-                                    launcher.launch("image/*")
+//                                    launcher.launch("image/*")
                                 }) {
                                     Icon(imageVector = Icons.Default.Done, contentDescription = null)
                                     Spacer(modifier = Modifier.width(6.dp))

@@ -8,5 +8,4 @@ data class OrdersIssuedData(
     val job_status: String,
     val issue_date: String,
     val amount : Int
-
 )
